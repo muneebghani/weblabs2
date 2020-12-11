@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    .row
+        .col-sm-4
+            a(href="/products/add", class="btn btn-dark float-left") Create New
+    .row.p-4
+        .col-sm-8.offset-3
+            h1.text-white Edureka's Course List
+    table.table.table-lg.table-striped.table-hover.text-black.bg-white
+        
+        thead
+            tr
+                th Course Name
+                th Course Id
+                th Course Duration(Hrs)
+                th Course Fee(USD)
+                th Actions
+        tbody
+            each product in products
+                tr
+                    td=product.crName
+                    td=product.id
+                    td=product.crDuration
+                    td=product.crFee
+                    td
+                        a(href="/products/edit/"+product._id) Edit
+                        a(href="/products/delete/"+product._id, class="ml-2") Delete
